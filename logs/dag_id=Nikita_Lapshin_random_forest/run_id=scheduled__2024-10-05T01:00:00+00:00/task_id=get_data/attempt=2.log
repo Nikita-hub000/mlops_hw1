@@ -1,0 +1,80 @@
+[2024-10-06T15:33:48.109+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-10-06T15:33:48.132+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Nikita_Lapshin_random_forest.get_data scheduled__2024-10-05T01:00:00+00:00 [queued]>
+[2024-10-06T15:33:48.140+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Nikita_Lapshin_random_forest.get_data scheduled__2024-10-05T01:00:00+00:00 [queued]>
+[2024-10-06T15:33:48.140+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 4
+[2024-10-06T15:33:48.152+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): get_data> on 2024-10-05 01:00:00+00:00
+[2024-10-06T15:33:48.171+0000] {standard_task_runner.py:64} INFO - Started process 1682 to run task
+[2024-10-06T15:33:48.191+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Nikita_Lapshin_random_forest', 'get_data', 'scheduled__2024-10-05T01:00:00+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/HW1.py', '--cfg-path', '/tmp/tmps03sklox']
+[2024-10-06T15:33:48.195+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask get_data
+[2024-10-06T15:33:48.247+0000] {task_command.py:426} INFO - Running <TaskInstance: Nikita_Lapshin_random_forest.get_data scheduled__2024-10-05T01:00:00+00:00 [running]> on host 22775caa7dfb
+[2024-10-06T15:33:48.347+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Lapshin Nikita' AIRFLOW_CTX_DAG_ID='Nikita_Lapshin_random_forest' AIRFLOW_CTX_TASK_ID='get_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-05T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-05T01:00:00+00:00'
+[2024-10-06T15:33:48.350+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-10-06T15:33:48.610+0000] {base.py:84} INFO - Using connection ID 's3_connection' for task execution.
+[2024-10-06T15:33:48.611+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id='s3_connection', conn_type='aws') credentials retrieved from login and password.
+[2024-10-06T15:33:48.619+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-10-06T15:33:48.619+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/HW1.py", line 53, in get_data
+    s3_hook.load_string(data.data.to_csv(), path, bucket_name=BUCKET, replace=True)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 158, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 132, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 1172, in load_string
+    self._upload_file_obj(f, key, bucket_name, replace, encrypt, acl_policy)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 1254, in _upload_file_obj
+    client = self.get_conn()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/base_aws.py", line 786, in get_conn
+    return self.conn
+  File "/usr/local/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/base_aws.py", line 743, in conn
+    return self.get_client_type(region_name=self.region_name)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/base_aws.py", line 703, in get_client_type
+    session = self.get_session(region_name=region_name, deferrable=deferrable)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/base_aws.py", line 673, in get_session
+    return SessionFactory(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/base_aws.py", line 197, in create_session
+    return self.basic_session
+  File "/usr/local/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/base_aws.py", line 128, in basic_session
+    return self._create_basic_session(session_kwargs=self.conn.session_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/base_aws.py", line 215, in _create_basic_session
+    return boto3.session.Session(**session_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/boto3/session.py", line 90, in __init__
+    self._setup_loader()
+  File "/home/airflow/.local/lib/python3.10/site-packages/boto3/session.py", line 131, in _setup_loader
+    self._loader = self._session.get_component('data_loader')
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/session.py", line 802, in get_component
+    return self._components.get_component(name)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/session.py", line 1140, in get_component
+    self._components[name] = factory()
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/session.py", line 199, in <lambda>
+    lambda: create_loader(self.get_config_variable('data_path')),
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/session.py", line 323, in get_config_variable
+    return self.get_component('config_store').get_config_variable(
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/configprovider.py", line 465, in get_config_variable
+    return provider.provide()
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/configprovider.py", line 671, in provide
+    value = provider.provide()
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/configprovider.py", line 761, in provide
+    scoped_config = self._session.get_scoped_config()
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/session.py", line 422, in get_scoped_config
+    raise ProfileNotFound(profile=profile_name)
+botocore.exceptions.ProfileNotFound: The config profile (***) could not be found
+[2024-10-06T15:33:48.634+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Nikita_Lapshin_random_forest, task_id=get_data, run_id=scheduled__2024-10-05T01:00:00+00:00, execution_date=20241005T010000, start_date=20241006T153348, end_date=20241006T153348
+[2024-10-06T15:33:48.640+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 13 for task get_data (The config profile (***) could not be found; 1682)
+[2024-10-06T15:33:48.656+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-10-06T15:33:48.673+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T15:33:48.674+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
