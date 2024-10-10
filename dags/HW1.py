@@ -49,7 +49,7 @@ def get_data(**kwargs):
     }
 
     s3_hook = S3Hook("s3_connection")
-    path = f"{model_metadata['model_name']}/datasets/california_housing.csv"
+    path = f"LapshinNikita/{model_metadata['model_name']}/datasets/california_housing.csv"
     s3_hook.load_string(data.data.to_csv(), path, bucket_name=BUCKET, replace=True)
     
     return dataset_info
@@ -59,7 +59,7 @@ def prepare_data(**kwargs):
     model_metadata = ti.xcom_pull(task_ids='init')
     
     s3_hook = S3Hook("s3_connection")
-    path = f"{model_metadata['model_name']}/datasets/california_housing.csv"
+    path = f"LapshinNikita/{model_metadata['model_name']}/datasets/california_housing.csv"
     data = pd.read_csv(s3_hook.download_file(path, bucket_name=BUCKET))
     
     start_time = time.time()
@@ -77,7 +77,7 @@ def prepare_data(**kwargs):
         "features": list(data.columns[:-1])
     }
     
-    prepared_path = f"{model_metadata['model_name']}/datasets/prepared_data.csv"
+    prepared_path = f"LapshinNikita/{model_metadata['model_name']}/datasets/prepared_data.csv"
     prepared_data = pd.DataFrame(X)
     s3_hook.load_string(prepared_data.to_csv(), prepared_path, bucket_name=BUCKET, replace=True)
     
@@ -88,7 +88,7 @@ def train_model(**kwargs):
     model_metadata = ti.xcom_pull(task_ids='init')
     
     s3_hook = S3Hook("s3_connection")
-    prepared_path = f"{model_metadata['model_name']}/datasets/prepared_data.csv"
+    prepared_path = f"LapshinNikita/{model_metadata['model_name']}/datasets/prepared_data.csv"
     data = pd.read_csv(s3_hook.download_file(prepared_path, bucket_name=BUCKET))
     
     X = data.values[:, :-1]
@@ -107,7 +107,7 @@ def train_model(**kwargs):
         "model_score": model.score(X, y)
     }
     
-    model_path = f"{model_metadata['model_name']}/results/model.pkl"
+    model_path = f"LapshinNikita/{model_metadata['model_name']}/results/model.pkl"
     s3_hook.load_bytes(pickle.dumps(model), key=model_path, bucket_name=BUCKET, replace=True)
     
     return model_metrics
@@ -118,7 +118,7 @@ def save_results(**kwargs):
     model_metrics = ti.xcom_pull(task_ids='train_model')
     
     s3_hook = S3Hook("s3_connection")
-    results_path = f"{model_metadata['model_name']}/results/metrics.json"
+    results_path = f"LapshinNikita/{model_metadata['model_name']}/results/metrics.json"
     s3_hook.load_string(json.dumps(model_metrics), results_path, bucket_name=BUCKET, replace=True)
     
     print("Results saved successfully!")

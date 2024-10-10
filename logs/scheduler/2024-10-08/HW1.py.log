@@ -1,0 +1,31 @@
+[2024-10-08T23:08:15.834+0000] {processor.py:161} INFO - Started process (PID=179) to work on /opt/airflow/dags/HW1.py
+[2024-10-08T23:08:15.836+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/HW1.py for tasks to queue
+[2024-10-08T23:08:15.843+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:15.843+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/HW1.py
+[2024-10-08T23:08:18.264+0000] {processor.py:840} INFO - DAG(s) 'Nikita_Lapshin_random_forest', 'Nikita_Lapshin_desicion_tree', 'Nikita_Lapshin_linear_regression' retrieved from /opt/airflow/dags/HW1.py
+[2024-10-08T23:08:18.545+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:18.544+0000] {dag.py:3089} INFO - Sync 3 DAGs
+[2024-10-08T23:08:18.589+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:18.588+0000] {dag.py:3947} INFO - Setting next_dagrun for Nikita_Lapshin_desicion_tree to 2024-10-07 01:00:00+00:00, run_after=2024-10-08 01:00:00+00:00
+[2024-10-08T23:08:18.592+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:18.592+0000] {dag.py:3947} INFO - Setting next_dagrun for Nikita_Lapshin_linear_regression to 2024-10-07 01:00:00+00:00, run_after=2024-10-08 01:00:00+00:00
+[2024-10-08T23:08:18.594+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:18.594+0000] {dag.py:3947} INFO - Setting next_dagrun for Nikita_Lapshin_random_forest to 2024-10-07 01:00:00+00:00, run_after=2024-10-08 01:00:00+00:00
+[2024-10-08T23:08:18.650+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/HW1.py took 2.845 seconds
+[2024-10-08T23:08:48.815+0000] {processor.py:161} INFO - Started process (PID=232) to work on /opt/airflow/dags/HW1.py
+[2024-10-08T23:08:48.818+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/HW1.py for tasks to queue
+[2024-10-08T23:08:48.854+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:48.831+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/HW1.py
+[2024-10-08T23:08:50.777+0000] {processor.py:840} INFO - DAG(s) 'Nikita_Lapshin_random_forest', 'Nikita_Lapshin_desicion_tree', 'Nikita_Lapshin_linear_regression' retrieved from /opt/airflow/dags/HW1.py
+[2024-10-08T23:08:50.806+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:50.806+0000] {dag.py:3089} INFO - Sync 3 DAGs
+[2024-10-08T23:08:50.830+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:50.830+0000] {dag.py:3947} INFO - Setting next_dagrun for Nikita_Lapshin_desicion_tree to 2024-10-08 01:00:00+00:00, run_after=2024-10-09 01:00:00+00:00
+[2024-10-08T23:08:50.834+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:50.834+0000] {dag.py:3947} INFO - Setting next_dagrun for Nikita_Lapshin_linear_regression to 2024-10-08 01:00:00+00:00, run_after=2024-10-09 01:00:00+00:00
+[2024-10-08T23:08:50.836+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:08:50.836+0000] {dag.py:3947} INFO - Setting next_dagrun for Nikita_Lapshin_random_forest to 2024-10-08 01:00:00+00:00, run_after=2024-10-09 01:00:00+00:00
+[2024-10-08T23:08:50.878+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/HW1.py took 2.082 seconds
+[2024-10-08T23:09:21.259+0000] {processor.py:161} INFO - Started process (PID=259) to work on /opt/airflow/dags/HW1.py
+[2024-10-08T23:09:21.261+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/HW1.py for tasks to queue
+[2024-10-08T23:09:21.265+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:09:21.264+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/HW1.py
+[2024-10-08T23:09:22.325+0000] {processor.py:840} INFO - DAG(s) 'Nikita_Lapshin_linear_regression', 'Nikita_Lapshin_random_forest', 'Nikita_Lapshin_desicion_tree' retrieved from /opt/airflow/dags/HW1.py
+[2024-10-08T23:09:22.341+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:09:22.341+0000] {dag.py:3089} INFO - Sync 3 DAGs
+[2024-10-08T23:09:22.356+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:09:22.356+0000] {dag.py:3947} INFO - Setting next_dagrun for Nikita_Lapshin_desicion_tree to 2024-10-08 01:00:00+00:00, run_after=2024-10-09 01:00:00+00:00
+[2024-10-08T23:09:22.359+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:09:22.359+0000] {dag.py:3947} INFO - Setting next_dagrun for Nikita_Lapshin_linear_regression to 2024-10-08 01:00:00+00:00, run_after=2024-10-09 01:00:00+00:00
+[2024-10-08T23:09:22.360+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:09:22.360+0000] {dag.py:3947} INFO - Setting next_dagrun for Nikita_Lapshin_random_forest to 2024-10-08 01:00:00+00:00, run_after=2024-10-09 01:00:00+00:00
+[2024-10-08T23:09:22.370+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/HW1.py took 1.120 seconds
+[2024-10-08T23:10:02.046+0000] {processor.py:161} INFO - Started process (PID=284) to work on /opt/airflow/dags/HW1.py
+[2024-10-08T23:10:02.090+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/HW1.py for tasks to queue
+[2024-10-08T23:10:02.247+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:10:02.198+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/HW1.py
+[2024-10-08T23:11:04.674+0000] {logging_mixin.py:188} INFO - [2024-10-08T23:10:42.318+0000] {timeout.py:68} ERROR - Process timed out, PID: 284

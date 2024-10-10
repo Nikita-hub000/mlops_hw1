@@ -1,0 +1,37 @@
+[2024-10-08T23:08:32.825+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-10-08T23:08:32.872+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Nikita_Lapshin_random_forest.get_data scheduled__2024-10-07T01:00:00+00:00 [queued]>
+[2024-10-08T23:08:32.889+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Nikita_Lapshin_random_forest.get_data scheduled__2024-10-07T01:00:00+00:00 [queued]>
+[2024-10-08T23:08:32.890+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2024-10-08T23:08:32.917+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): get_data> on 2024-10-07 01:00:00+00:00
+[2024-10-08T23:08:32.940+0000] {standard_task_runner.py:64} INFO - Started process 215 to run task
+[2024-10-08T23:08:32.996+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Nikita_Lapshin_random_forest', 'get_data', 'scheduled__2024-10-07T01:00:00+00:00', '--job-id', '103', '--raw', '--subdir', 'DAGS_FOLDER/HW1.py', '--cfg-path', '/tmp/tmpuj04agft']
+[2024-10-08T23:08:33.000+0000] {standard_task_runner.py:91} INFO - Job 103: Subtask get_data
+[2024-10-08T23:08:33.174+0000] {task_command.py:426} INFO - Running <TaskInstance: Nikita_Lapshin_random_forest.get_data scheduled__2024-10-07T01:00:00+00:00 [running]> on host b25050cd5d99
+[2024-10-08T23:08:33.496+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Lapshin Nikita' AIRFLOW_CTX_DAG_ID='Nikita_Lapshin_random_forest' AIRFLOW_CTX_TASK_ID='get_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-07T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-07T01:00:00+00:00'
+[2024-10-08T23:08:33.500+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-10-08T23:08:33.683+0000] {_california_housing.py:173} INFO - Downloading Cal. housing from https://ndownloader.figshare.com/files/5976036 to /home/***/scikit_learn_data
+[2024-10-08T23:08:36.324+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-10-08T23:08:36.340+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/HW1.py", line 40, in get_data
+    data = fetch_california_housing(as_frame=True)
+  File "/home/airflow/.local/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/sklearn/datasets/_california_housing.py", line 194, in fetch_california_housing
+    remove(archive_path)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/airflow/scikit_learn_data/cal_housing.tgz'
+[2024-10-08T23:08:36.430+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Nikita_Lapshin_random_forest, task_id=get_data, run_id=scheduled__2024-10-07T01:00:00+00:00, execution_date=20241007T010000, start_date=20241008T230832, end_date=20241008T230836
+[2024-10-08T23:08:36.548+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 103 for task get_data ([Errno 2] No such file or directory: '/home/airflow/scikit_learn_data/cal_housing.tgz'; 215)
+[2024-10-08T23:08:36.655+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-10-08T23:08:36.863+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-08T23:08:36.873+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
